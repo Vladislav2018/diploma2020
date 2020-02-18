@@ -22,7 +22,7 @@ def get_age():
     return selected_age
 
 def get_job_dist():
-    all_dists = [*range(20,20000000, 20)]
+    all_dists = [*range(20,20000000)]
     weights = []
     for dist in all_dists:
         weights.append(1/dist)
