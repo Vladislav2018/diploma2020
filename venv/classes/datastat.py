@@ -22,10 +22,8 @@ def get_age():
     return selected_age
 
 def get_job_dist():
+    #it was better thanks for @trapwalker from Habr Answers, but not at all
+    #todo: solve it normal way, for example with scipy.stats.rv_discrete
     all_dists = [*range(20,20000000)]
-    weights = []
-    for dist in all_dists:
-        weights.append(1/dist)
-    dist = choices(all_dists,weights,k=1)
-    dist = dist[0]
+    dist = choices(all_dists, (1/x for x in all_dists))
     return dist
