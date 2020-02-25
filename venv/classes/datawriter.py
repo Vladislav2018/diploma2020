@@ -41,3 +41,30 @@ def write(object):
         objwrt = csv.writer(csvfile)
         objwrt.writerows(all_data)
     return print('Written successfully')
+
+def read(classname):
+    '''
+    :param classname: str
+    this parameter should be name of the class without something additional
+    :return: dict
+    this method is inverse to the method above
+    '''
+    #ToDo complite this method, output parameter should be comfortable dict
+    filename = classname + 's.csv'
+    with open(filename, 'r', newline='') as read:
+        readdata = csv.reader(read, delimiter=' ', quotechar='|')
+        keys = []
+        for string in readdata:
+            for row in string:
+                keys.append(row)
+            break
+        if len(keys) != 0:
+            keys = keys[0].split(',')
+        values = []
+        subvalues = []
+        for string in readdata:
+            values.append(string)
+            for sub in string:
+                subvalues.append(sub)
+
+    return 0

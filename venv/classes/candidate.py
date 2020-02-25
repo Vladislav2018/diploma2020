@@ -68,3 +68,19 @@ class Candidate:
         return bad_habits
 
     bad_habits = get_bad_habits(male, age)
+
+    def gen_history(age, is_male, bad_habits):
+        '''
+        ToDo: watch resume for work with maximum info
+        ToDo: find more params
+        ToDo: find true statistics
+        '''
+        '''
+        :param age: int
+        :param is_male: bool
+        :param bad_habits: dict
+        ... may should be more parameters
+        :return:
+        '''
+        pass
+
