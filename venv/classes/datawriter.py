@@ -1,3 +1,4 @@
+# now is useless
 import csv
 import datetime
 

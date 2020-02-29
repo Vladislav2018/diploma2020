@@ -84,3 +84,5 @@ class Candidate:
         '''
         pass
 
+    disared_vacantions = {}
+    tries = {}
