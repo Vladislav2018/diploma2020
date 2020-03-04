@@ -27,14 +27,28 @@ def get_age():
     return selected_age
 
 def get_job_dist():
-    #it was better thanks for @trapwalker from Habr Answers, but not at all
-    NEAREST_DIST = 20.0
-    FAR_DIST = 1.8*10**7
-    all_dists = np.arange(NEAREST_DIST, FAR_DIST, 1.0)
-    weights = [1/x for x in all_dists]
-    weights = np.array(weights)
-    weights /= weights.sum()
-    dist = np.random.choice(all_dists,1, p = weights)
-    #I don't know, how is it matters to save my distibution in another object
-    #dist_distr = stats.rv_discrete(name='hyperbolic normalized', values=(all_dists,weights))
-    return dist[0]
+    numbers = '1,2,3,4,5,6,7,8,9,0'
+    weights = np.arange(1, 11, 1.0)
+    weights = [1/x for x in weights]
+    numbers = numbers.split(',')
+    steps = np.arange(2,8)
+    steps_w = [1/x for x in steps]
+    steps_w /= sum(steps_w)
+    weights /= sum(weights)
+    steps_count = np.random.choice(steps, 1, p= steps_w)
+    steps_count = steps_count[0]
+    dist_str_arr = np.random.choice(numbers, steps_count, p = weights)
+    dist_str = ''
+    step = 0
+    for sym in dist_str_arr:
+        if (int(sym) < 2) and (step < 2) and (steps_count < 4):
+            dist_str += str(randint(2,9))
+        else:
+            dist_str += sym
+        step += 1
+    dist = int(dist_str)
+    return dist
+    # #I don't know, how is it matters to save my distibution in another object
+    # #dist_distr = stats.rv_discrete(name='hyperbolic normalized', values=(all_dists,weights))
+    # return dist[0]
+
